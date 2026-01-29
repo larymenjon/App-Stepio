@@ -1,0 +1,167 @@
+/* App.css - Versão Estável e Limpa */
+
+:root {
+  --primary: #9CCC65;       /* Verde Mascote */
+  --primary-dark: #558B2F;  
+  --accent: #7B1FA2;        /* Roxo */
+  --bg-app: #F7F9F3;        
+  --white: #FFFFFF;
+  --text-main: #33691E;
+  
+  --shadow-soft: 0 8px 24px rgba(139, 195, 74, 0.15);
+  --radius-md: 20px;
+}
+
+body {
+  background-color: #202124;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* O CELULAR */
+.app-container {
+  width: 375px;
+  height: 812px;
+  max-height: 95vh;
+  background-color: var(--bg-app);
+  border-radius: 40px;
+  box-shadow: 0 0 0 12px #333, 0 30px 60px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ÁREA DE CONTEÚDO (ROLA SOZINHA) */
+main {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 90px; /* Espaço para o menu */
+  scrollbar-width: none; /* Firefox */
+}
+main::-webkit-scrollbar { display: none; } /* Chrome */
+
+/* --- MENU INFERIOR --- */
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: var(--white);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+  z-index: 100;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.nav-btn {
+  background: none; border: none;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 4px; color: #C5E1A5; font-size: 0.7rem; cursor: pointer;
+}
+.nav-btn.active { color: var(--accent); }
+
+/* --- HEADER --- */
+.hero-header {
+  background: linear-gradient(180deg, #AED581 0%, #DCEDC8 100%);
+  padding: 40px 20px 30px;
+  border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
+  text-align: center;
+}
+
+.header-simple {
+  padding: 15px 20px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+.mascot-logo-small { width: 40px; height: auto; }
+
+/* --- CARDS E ELEMENTOS --- */
+.card-white {
+  background: var(--white);
+  margin: 0 20px 15px;
+  padding: 20px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.section-title { padding: 0 20px; font-size: 1.1rem; color: var(--text-main); margin: 20px 0 10px; font-weight: 800; }
+
+/* Home Cards */
+.age-cards-container {
+  display: flex; gap: 15px; padding: 0 20px; margin-top: -30px; margin-bottom: 25px;
+  position: relative; z-index: 10;
+}
+.age-card { flex: 1; background: white; padding: 10px; border-radius: 18px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.age-number { font-size: 1.5rem; font-weight: 800; color: #7CB342; display: block; }
+
+.highlight-card { background: linear-gradient(135deg, #DCEDC8 0%, #F1F8E9 100%); border-left: 4px solid var(--primary); }
+
+/* Listas */
+.agenda-item { display: flex; gap: 15px; padding: 10px 0; border-bottom: 1px solid #EEE; align-items: center; }
+.week-day-header { font-size: 0.85rem; color: #8F9E78; font-weight: bold; margin-top: 10px; margin-bottom: 5px; text-transform: uppercase; }
+
+/* Inputs e Botões */
+.input-group { margin-bottom: 15px; }
+.input-label { display: block; font-size: 0.85rem; color: var(--text-main); margin-bottom: 5px; font-weight: bold; }
+.input-field { width: 100%; padding: 12px; border: 1px solid #E1EAC2; border-radius: 12px; background: #FAFAFA; box-sizing: border-box; }
+
+.btn-primary { background: var(--accent); color: white; width: 100%; padding: 15px; border: none; border-radius: 15px; font-weight: bold; cursor: pointer; }
+.btn-secondary { background: transparent; border: 1px solid #CCC; color: #666; width: 100%; padding: 12px; border-radius: 15px; cursor: pointer; }
+.btn-save { background: var(--primary); color: white; width: 100%; padding: 15px; border: none; border-radius: 15px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+.btn-danger { background: #FFEBEE; color: #E57373; width: 100%; padding: 15px; border: none; border-radius: 15px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+
+.fab-button { position: absolute; bottom: 90px; right: 20px; width: 56px; height: 56px; background: var(--primary); color: white; border-radius: 50%; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 50; }
+
+/* Calendário & Agenda */
+.calendar-container { background: white; border-radius: 20px; padding: 15px; box-shadow: var(--shadow-soft); margin-bottom: 20px; }
+.calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; color: var(--text-main); font-weight: bold; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; }
+.calendar-day-label { font-size: 0.75rem; color: #999; }
+.calendar-day { height: 32px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; border-radius: 50%; cursor: pointer; }
+.calendar-day.selected { background: var(--primary); color: white; font-weight: bold; }
+.calendar-day.has-event { position: relative; font-weight: bold; color: #558B2F; }
+.calendar-day.has-event::after { content: ''; position: absolute; bottom: 2px; width: 4px; height: 4px; background: #FFA726; border-radius: 50%; }
+
+.professional-card { display: flex; justify-content: space-between; align-items: center; padding: 15px; background: white; border-radius: 16px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #42A5F5; }
+.btn-call { background-color: #E3F2FD; color: #1E88E5; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer; }
+.toggle-switch { display: flex; background: #F1F8E9; padding: 4px; border-radius: 15px; margin: 0 20px 20px 20px; }
+.toggle-option { flex: 1; text-align: center; padding: 8px; border-radius: 12px; font-size: 0.9rem; color: #8F9E78; cursor: pointer; font-weight: bold; }
+.toggle-option.active { background: white; color: var(--text-main); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+
+/* Medicamentos e Terapias Cards */
+.therapy-card { border-left: 4px solid #FFA726; display: flex; flex-direction: column; gap: 5px; }
+.med-card { border-left: 4px solid var(--primary); display: flex; flex-direction: column; gap: 10px; }
+.med-header { display: flex; justify-content: space-between; align-items: center; }
+.card-actions { display: flex; gap: 10px; }
+.action-btn { background: none; border: none; cursor: pointer; padding: 5px; }
+.time-chip-container { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 10px; }
+.time-chip { background: #DCEDC8; color: #33691E; padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; font-weight: bold; display: flex; align-items: center; gap: 5px; }
+
+/* Botão de Calendário */
+.btn-calendar { background-color: #E3F2FD; color: #1565C0; border: none; padding: 8px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: bold; display: flex; align-items: center; gap: 6px; cursor: pointer; margin-top: 5px; width: fit-content; }
+
+/* Auth Screens */
+.auth-screen { height: 100%; background: linear-gradient(135deg, #F1F8E9 0%, #DCEDC8 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 30px; text-align: center; }
+.auth-card { background: rgba(255,255,255,0.9); width: 100%; border-radius: 30px; padding: 30px 25px; box-sizing: border-box; }
+.mascot-container-large { width: 150px; margin-bottom: 20px; }
+.mascot-img { width: 100%; height: auto; }
+.animate-fade { animation: fadeIn 0.4s ease-out; }
+@keyframes fadeIn { from {opacity:0} to {opacity:1} }
+
+/* Modais */
+.modal-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(2px); }
+.modal-content { background: white; width: 80%; padding: 25px; border-radius: 25px; text-align: center; }
+
+/* Perfil */
+.profile-header { text-align: center; margin-bottom: 20px; }
+.profile-photos-edit { position: relative; width: 100px; height: 100px; margin: 0 auto 10px auto; }
+.profile-section-label { font-size: 0.85rem; color: #8F9E78; font-weight: bold; margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; }
